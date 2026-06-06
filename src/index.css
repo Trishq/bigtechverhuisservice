@@ -2,13 +2,16 @@
 
 
 
-body {
-  font-family: 'Mondwest';
+@font-face {
+  font-family: Mondwest;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('/fonts/PPMondwest-regular.ttf');
 }
 
-@font-face {
-  font-family: "Mondwest";
-  src: url("/fonts/PPMondwest-regular.ttf") format("truetype");
+body {
+  font-family: 'Mondwest';
 }
 
 @font-face {
