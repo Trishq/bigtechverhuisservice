@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: Mondwest;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('src/assets/PPMondwest-regular.ttf');
+}
+
+body {
+  font-family: 'Mondwest';
+}
+
+@font-face {
+  font-family: "BigCaslon";
+  src: url("/fonts/BigCaslon.ttf") format("truetype");
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
