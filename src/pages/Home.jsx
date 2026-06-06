@@ -242,12 +242,12 @@ y: Math.max(
           className="w-4xl mb-4 mt-20 z-10"
         />
 
-        <h1 className="w-full text-[40px] font-black mb-12 leading-[0.9] text-white px-5">
+        <h1 className="w-max-120 text-[60px] font-black mb-12 leading-[0.9] text-white px-5">
           We helpen je afscheid nemen van Big Tech
           Platformen waar je gevangen zit.
         </h1>
 
-        <p className="w-full text-1xl mb-12 leading-[0.9] text-white">
+        <p className="w-max-120 text-1xl mb-12 leading-[0.9] text-white">
           Neem je favoriete dingen mee naar je nieuwe digitale huis.
           Vul je naam in en begin met inpakken.
         </p>
