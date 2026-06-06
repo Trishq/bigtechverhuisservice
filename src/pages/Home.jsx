@@ -247,7 +247,7 @@ y: Math.max(
           Platformen waar je gevangen zit.
         </h1>
 
-        <p className="max-w-220 text-2xl mb-12 leading-[0.9] text-white">
+        <p className="max-w-220 text-[50px] mb-12 leading-[0.9] text-white">
           Neem je favoriete dingen mee naar je nieuwe digitale huis.
           Vul je naam in en begin met inpakken.
         </p>
