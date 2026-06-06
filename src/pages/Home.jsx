@@ -242,7 +242,7 @@ y: Math.max(
           className="w-4xl mb-4 mt-20 z-10"
         />
 
-        <h1 className="max-w-220 text-[60px] font-black mb-12 leading-[0.9] text-white px-5">
+        <h1 className="max-w-220 text-[60px] font-black mb-12 leading-[0.9] text-white">
           We helpen je afscheid nemen van Big Tech
           Platformen waar je gevangen zit.
         </h1>
