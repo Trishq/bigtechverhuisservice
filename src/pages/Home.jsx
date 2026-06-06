@@ -120,7 +120,7 @@ y: Math.max(
     <div
       className="min-h-screen min-w-screen bg-cover bg-center relative overflow-hidden"
       style={{
-        backgroundImage: "url('/backgroundstart.png')",
+        backgroundColor: "#ffffff",
       }}
     >
       {/* POPUPS */}
