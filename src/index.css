@@ -9,6 +9,17 @@
   src: url('src/assets/PPMondwest-regular.ttf');
 }
 
+@font-face {
+  font-family: "MijnFont";
+  src: url("/fonts/PPMondwest-regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "MijnFont", sans-serif;
+}
+
 body {
   font-family: 'Mondwest';
 }
