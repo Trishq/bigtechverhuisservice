@@ -243,7 +243,7 @@ y: Math.max(
         />
 
         <h1 className="w-full text-[80px] font-black mb-12 leading-[0.9] text-white px-5">
-          We helpen je afscheid nemen van Big Tech
+          TEST We helpen je afscheid nemen van Big Tech
           Platformen waar je gevangen zit.
         </h1>
 
