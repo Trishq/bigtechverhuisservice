@@ -5,13 +5,13 @@
 @font-face {
   font-family: Mondwest;
   font-style: normal;
-  font-weight: 200 700;
   font-display: swap;
   src: url('/fonts/PPMondwest-regular.ttf');
 }
 
 body {
   font-family: 'Mondwest';
+  font-weight: 300;
 }
 
 @font-face {
