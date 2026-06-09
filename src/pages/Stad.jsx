@@ -131,7 +131,6 @@ async function getHouses() {
         className={`
           w-64 h-24 border-4
           flex items-center justify-center
-          shadow-xl
           hover:scale-110
           transition-all
           duration-300
@@ -181,10 +180,10 @@ async function getHouses() {
 />
 
       <div
-        className="min-h-screen w-full overflow-x-hidden"
-        style={{
-          backgroundColor: "#1f1f1fff",
-        }}
+        className="min-h-screen min-w-screen bg-cover bg-center relative overflow-hidden"
+      style={{
+        backgroundImage: "url('/Frontpage.png')",
+      }}
       >
         <h1 className="text-8xl font-black text-center pt-10 mb-20 text-white">
           WELKOM OP HET INTERNET WAAR JE JE WEER THUIS VOELT
@@ -304,125 +303,148 @@ async function getHouses() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 pb-20 items-start">
-          <div className="bg-gray-200 border-2 border-black mt-10 p-8 shadow-2xl h-[700px] overflow-y-auto overflow-x-hidden">
-            <h2 className="text-5xl text-blue-600 font-bold mb-6 text-center">
-              Gastenboek
-            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 pb-20 items-start">
+          <div className="bg-gray-300 border-2 border-black">
+  <div className="bg-blue-700 border-b-2 border-black px-2 py-1 flex justify-between items-center">
+    <p className="font-bold text-sm text-white">
+      GASTENBOEK.EXE
+    </p>
 
-            <form onSubmit={addBericht} className="mb-8">
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Laat een berichtje achter..."
-                className="
-                  w-full p-4 border-2 border-black
-                  mb-4 min-h-32 bg-white text-black
-                  items-center justify-center
-                "
-              />
+    <span className="bg-gray-200 border border-black px-2 text-black font-bold">
+      ×
+    </span>
+  </div>
 
-              <button
-                type="submit"
-                className="
-                  bg-blue-600 border-2 border-black
-                  text-white px-8 py-4 cursor-pointer
-                  items-center justify-center
-                  hover:bg-blue-700
-                "
-              >
-                Bericht plaatsen
-              </button>
-            </form>
+  <div className="p-6 h-[650px] overflow-y-auto">
+    <form onSubmit={addBericht} className="mb-8">
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Laat een bericht achter..."
+        className="
+          w-full
+          p-4
+          border-2
+          border-black
+          bg-white
+          text-black
+          mb-4
+          min-h-32
+        "
+      />
 
-            <div className="grid gap-4">
-              {berichten.map((bericht) => (
-                <div key={bericht.id} className="bg-white p-4">
-                  <h3 className="font-bold text-2xl">
-                    {bericht.name}
-                  </h3>
+      <button
+        type="submit"
+        className="
+          bg-blue-700
+          border-2
+          border-black
+          text-white
+          px-6
+          py-3
+          hover:scale-105
+          transition-transform
+          cursor-pointer
+        "
+      >
+        Bericht plaatsen
+      </button>
+    </form>
 
-                  <p className="mb-2 text-3xl text-blue-600">
-                    {bericht.message}
-                  </p>
-
-                  <p className="text-sm opacity-60">
-                    {new Date(bericht.created_at).toLocaleString("nl-NL")}
-                  </p>
-                </div>
-              ))}
-            </div>
+    <div className="space-y-4">
+      {berichten.map((bericht) => (
+        <div
+          key={bericht.id}
+          className="bg-white border-2 border-black"
+        >
+          <div className="bg-blue-700 px-2 py-1 text-white text-sm font-bold">
+            {bericht.name}
           </div>
 
-          <div className="bg-gray-200 border-2 border-black mt-10 p-8 shadow-2xl h-[700px] text-center">
-            <h2 className="text-5xl text-blue-600 font-bold mb-3 text-center">
-              Statistieken
-            </h2>
+          <div className="p-4">
+            <p className="text-xl text-black mb-2">
+              {bericht.message}
+            </p>
 
-            <div className="flex flex-col items-center h-full text-center">
-              <p className="text-2xl text-black mb-0 mt-10">
-                Deze internetwijk heeft al
-              </p>
-
-              <p className="text-8xl font-black text-blue-600">
-                {
-                  new Set(
-                    huizen.map((huis) =>
-                      huis.name?.toLowerCase().trim()
-                    )
-                  ).size
-                }
-              </p>
-
-              <p className="text-2xl text-black mt-4">
-                unieke bewoners gehad
-              </p>
-
-              <p className="text-2xl text-black mt-16">
-                Deze stad bestaat al
-              </p>
-
-              <div className="flex justify-center gap-8 mt-6 flex-wrap">
-                <div className="text-center">
-                  <p className="text-6xl font-black text-pink-600">
-                    {days}
-                  </p>
-                  <p className="text-xl text-black">dagen</p>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-6xl font-black text-pink-600">
-                    {hours}
-                  </p>
-                  <p className="text-xl text-black">uren</p>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-6xl font-black text-pink-600">
-                    {minutes}
-                  </p>
-                  <p className="text-xl text-black">minuten</p>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-6xl font-black text-pink-600">
-                    {seconds}
-                  </p>
-                  <p className="text-xl text-black">seconden</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gray-200 border-2 border-black mt-10 p-8 shadow-2xl h-[700px]">
-            <h2 className="text-5xl text-blue-600 font-bold mb-6 text-center">
-              Kolom rechts
-            </h2>
-
-            <p className="text-2xl text-black">
-              Hier komt straks extra informatie.
+            <p className="text-xs opacity-60">
+              {new Date(
+                bericht.created_at
+              ).toLocaleString("nl-NL")}
             </p>
           </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+          <div className="bg-gray-300 border-2 border-black">
+  <div className="bg-blue-700 border-b-2 border-black px-2 py-1 flex justify-between items-center">
+    <p className="font-bold text-sm text-white">
+      STATS.EXE
+    </p>
+
+    <span className="bg-gray-200 border border-black px-2 text-black font-bold">
+      ×
+    </span>
+  </div>
+
+  <div className="p-6 text-center h-[650px] flex flex-col">
+    <p className="text-xl text-black mb-2">
+      Bewoners
+    </p>
+
+    <p className="text-8xl font-black text-blue-700 mb-8">
+      {
+        new Set(
+          huizen.map((huis) =>
+            huis.name?.toLowerCase().trim()
+          )
+        ).size
+      }
+    </p>
+
+    <p className="text-xl text-black mb-8">
+      unieke internetverhuizers
+    </p>
+
+    <div className="border-t-2 border-black pt-8">
+      <p className="text-xl text-black mb-6">
+        Stad bestaat al
+      </p>
+
+      <div className="grid grid-cols-2 gap-6">
+        <div>
+          <p className="text-6xl font-black text-pink-600">
+            {days}
+          </p>
+          <p>dagen</p>
+        </div>
+
+        <div>
+          <p className="text-6xl font-black text-pink-600">
+            {hours}
+          </p>
+          <p>uren</p>
+        </div>
+
+        <div>
+          <p className="text-6xl font-black text-pink-600">
+            {minutes}
+          </p>
+          <p>minuten</p>
+        </div>
+
+        <div>
+          <p className="text-6xl font-black text-pink-600">
+            {seconds}
+          </p>
+          <p>seconden</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </div>
