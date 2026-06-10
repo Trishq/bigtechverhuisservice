@@ -35,6 +35,7 @@ export default function Home({ name, setName }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setPopups((prev) => {
+        if (window.innerWidth < 768 && prev.length >= 1) return prev;
         if (prev.length >= 3) return prev;
         if (availablePopups.length === 0) return prev;
 
@@ -52,8 +53,8 @@ export default function Home({ name, setName }) {
         const newPopup = {
           ...randomPopup,
           id: `${randomPopup.key}-${Date.now()}`,
-          x: Math.random() * 65 + 5,
-          y: Math.random() * 55 + 15,
+          x: window.innerWidth < 768 ? 5 : Math.random() * 65 + 5,
+          y: window.innerWidth < 768 ? 18 : Math.random() * 55 + 15,
         };
 
         return [...prev, newPopup];
@@ -66,9 +67,7 @@ export default function Home({ name, setName }) {
   function closePopup(id, key) {
     setPopups((prev) => prev.filter((popup) => popup.id !== id));
 
-    setAvailablePopups((prev) =>
-      prev.filter((popup) => popup.key !== key)
-    );
+    setAvailablePopups((prev) => prev.filter((popup) => popup.key !== key));
   }
 
   useEffect(() => {
@@ -114,23 +113,23 @@ export default function Home({ name, setName }) {
   }, [dragging]);
 
   const reviews = [
-  {
-    name: "@ElonMusk",
-    text: "Blijf pls! Zonder jullie kan ik geen data meer verkopen",
-  },
-  {
-    name: "@xXx_appeltje_xXx",
-    text: "Eindelijk een internet wat weer voelt als eerst! Echt een aanrader voor iedereen die klaar is met de grote techbedrijven!",
-  },
-  {
-    name: "@anonieme_verhuizer",
-    text: "Wat een snelle service dankzij de Big Tech Verhuis Service. Alles was zo geregeld en mijn digitale leven is nu veel overzichtelijker.",
-  },
-];
+    {
+      name: "@ElonMusk",
+      text: "Blijf pls! Zonder jullie kan ik geen data meer verkopen",
+    },
+    {
+      name: "@xXx_appeltje_xXx",
+      text: "Eindelijk een internet wat weer voelt als eerst! Echt een aanrader voor iedereen die klaar is met de grote techbedrijven!",
+    },
+    {
+      name: "@anonieme_verhuizer",
+      text: "Wat een snelle service dankzij de Big Tech Verhuis Service. Alles was zo geregeld en mijn digitale leven is nu veel overzichtelijker.",
+    },
+  ];
 
   return (
     <div
-      className="min-h-screen min-w-screen bg-cover bg-center relative overflow-hidden"
+      className="min-h-screen w-full bg-cover bg-center relative overflow-x-hidden"
       style={{
         backgroundImage: "url('/Frontpage.png')",
       }}
@@ -139,7 +138,16 @@ export default function Home({ name, setName }) {
       {popups.map((popup) => (
         <div
           key={popup.id}
-          className="absolute w-80 bg-gray-300 border-2 border-black shadow-2xl z-[60]"
+          className="
+            absolute
+            w-[90vw]
+            max-w-80
+            bg-gray-300
+            border-2
+            border-black
+            shadow-2xl
+            z-[60]
+          "
           style={{
             left: `${popup.x}%`,
             top: `${popup.y}%`,
@@ -158,8 +166,7 @@ export default function Home({ name, setName }) {
               cursor-move
             "
             onMouseDown={(e) => {
-              const rect =
-                e.currentTarget.parentElement.getBoundingClientRect();
+              const rect = e.currentTarget.parentElement.getBoundingClientRect();
 
               setDragging({
                 id: popup.id,
@@ -168,9 +175,7 @@ export default function Home({ name, setName }) {
               });
             }}
           >
-            <p className="font-bold text-sm text-white">
-              {popup.title}
-            </p>
+            <p className="font-bold text-sm text-white">{popup.title}</p>
 
             <button
               type="button"
@@ -186,7 +191,7 @@ export default function Home({ name, setName }) {
             <img
               src={popup.image}
               alt={popup.title}
-              className="w-full h-40 object-cover border border-black mb-3"
+              className="w-full h-32 md:h-40 object-cover border border-black mb-3"
             />
 
             <input
@@ -222,7 +227,8 @@ export default function Home({ name, setName }) {
           top-0
           left-0
           w-full
-          h-14
+          h-12
+          md:h-14
           bg-black
           border-b-2
           border-black
@@ -233,7 +239,7 @@ export default function Home({ name, setName }) {
         "
       >
         <div
-          className="whitespace-nowrap text-white font-bold text-xl"
+          className="whitespace-nowrap text-white font-bold text-base md:text-xl"
           style={{
             animation: "marquee 20s linear infinite",
           }}
@@ -248,42 +254,42 @@ export default function Home({ name, setName }) {
         </div>
       </div>
 
-      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 md:pt-28">
         <img
           src="/Middel.png"
           alt="foto"
-          className="absolute top-8 right-8 w-90 z-50"
+          className="hidden md:block absolute top-8 right-8 w-90 z-50"
         />
 
         <img
           src="/Logo1.png"
           alt="Logo"
-          className="w-4xl mb-4 mt-20 z-10"
+          className="w-full max-w-xs md:max-w-4xl mb-4 mt-8 md:mt-20 z-10"
         />
 
-        <h1 className="max-w-220 text-[60px] mb-12 leading-[0.9] text-white">
-          We helpen je afscheid nemen van Big Tech
-          Platformen waar je gevangen zit.
+        <h1 className="max-w-220 text-[32px] md:text-[60px] mb-8 md:mb-12 leading-[0.9] text-white">
+          We helpen je afscheid nemen van Big Tech Platformen waar je gevangen
+          zit.
         </h1>
 
-        <p className="max-w-220 text-[50px] mb-12 leading-[0.9] text-white">
-          Neem je favoriete dingen mee naar je nieuwe digitale huis.
-          Vul je naam in en begin met inpakken.
+        <p className="max-w-220 text-[22px] md:text-[50px] mb-8 md:mb-12 leading-[0.95] text-white">
+          Neem je favoriete dingen mee naar je nieuwe digitale huis. Vul je naam
+          in en begin met inpakken.
         </p>
 
-        <div className="bg-gray-300 border-black border-2 p-8 shadow-2xl w-full max-w-100 mb-24 z-10">
+        <div className="bg-gray-300 border-black border-2 p-5 md:p-8 shadow-2xl w-full max-w-100 mb-16 md:mb-24 z-10">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Vul je gebruikersnaam in."
-            className="w-full p-4 text-1xl border-gray-600 border-2 mb-6 text-black bg-white"
+            className="w-full p-4 text-base md:text-1xl border-gray-600 border-2 mb-6 text-black bg-white"
           />
 
           <img
             src="/Middel2.png"
             alt="foto"
-            className="absolute top-172 left-8 w-90 z-50"
+            className="hidden md:block absolute top-172 left-8 w-90 z-50"
           />
 
           <button
@@ -296,52 +302,50 @@ export default function Home({ name, setName }) {
         </div>
 
         {/* REVIEWS */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-7 w-full max-w-6xl mb-16 z-10">
-  {reviews.map((review, index) => (
-    <div
-      key={index}
-      className="
-        bg-gray-300
-        border-2
-        border-black
-        text-black
-      "
-    >
-      <div
-        className="
-          bg-blue-700
-          border-b-2
-          border-black
-          px-2
-          py-1
-          flex
-          justify-between
-          items-center
-        "
-      >
-        <p className="font-bold text-[18px] text-white text-left">
-          REVIEW
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 w-full max-w-6xl mb-16 z-10">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="
+                bg-gray-300
+                border-2
+                border-black
+                text-black
+              "
+            >
+              <div
+                className="
+                  bg-blue-700
+                  border-b-2
+                  border-black
+                  px-2
+                  py-1
+                  flex
+                  justify-between
+                  items-center
+                "
+              >
+                <p className="font-bold text-[18px] text-white text-left">
+                  REVIEW
+                </p>
 
-        <span className="bg-gray-200 border border-black px-2 text-black font-bold">
-          ×
-        </span>
-      </div>
+                <span className="bg-gray-200 border border-black px-2 text-black font-bold">
+                  ×
+                </span>
+              </div>
 
-      <div className="p-4 text-left">
-        <p className="text-xl mb-4">
-          "{review.text}"
-        </p>
+              <div className="p-4 text-left">
+                <p className="text-lg md:text-xl mb-4">"{review.text}"</p>
 
-        <p className="text-xl font-bold text-bottom">
-          — {review.name}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
+                <p className="text-lg md:text-xl font-bold">
+                  — {review.name}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-1 mb-12 z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-1 mb-12 z-10">
           <a
             href="/stad"
             className="flex flex-col items-center text-white hover:scale-110 transition-transform"
@@ -388,8 +392,6 @@ export default function Home({ name, setName }) {
             </span>
           </a>
         </div>
-
-        
 
         <p className="w-full text-m mb-4 leading-[0.9] text-white">
           © - Trisha Koevoets
