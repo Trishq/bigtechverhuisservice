@@ -228,7 +228,7 @@ export default function Home({ name, setName }) {
           left-0
           w-full
           h-12
-          md:h-14
+          md:h-30
           bg-black
           border-b-2
           border-black
