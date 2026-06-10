@@ -254,7 +254,7 @@ export default function Home({ name, setName }) {
         </div>
       </div>
 
-      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 md:pt-28">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-14 md:pt-28">
         <img
           src="/Middel.png"
           alt="foto"
@@ -264,10 +264,10 @@ export default function Home({ name, setName }) {
         <img
           src="/Logo1.png"
           alt="Logo"
-          className="w-full max-w-xs md:max-w-4xl mb-4 mt-8 md:mt-20 z-10"
+          className="w-[90vw] max-w-xs md:max-w-4xl mb-4 mt-8 md:mt-20 z-10"
         />
 
-        <h1 className="max-w-220 text-[32px] md:text-[60px] mb-8 md:mb-12 leading-[0.9] text-white">
+        <h1 className="max-w-220 text-[26px] md:text-[60px] mb-8 md:mb-12 leading-[0.9] text-white">
           We helpen je afscheid nemen van Big Tech Platformen waar je gevangen
           zit.
         </h1>
@@ -277,7 +277,7 @@ export default function Home({ name, setName }) {
           in en begin met inpakken.
         </p>
 
-        <div className="bg-gray-300 border-black border-2 p-5 md:p-8 shadow-2xl w-full max-w-100 mb-16 md:mb-24 z-10">
+        <div className="max-w-220 text-[18px] md:text-[50px] mb-8 md:mb-12 leading-[0.95] text-white">
           <input
             type="text"
             value={name}
@@ -306,12 +306,7 @@ export default function Home({ name, setName }) {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="
-                bg-gray-300
-                border-2
-                border-black
-                text-black
-              "
+              className="bg-gray-300 border-black border-2 p-4 md:p-8 shadow-2xl w-[90vw] max-w-100 mb-16 md:mb-24 z-10"
             >
               <div
                 className="
