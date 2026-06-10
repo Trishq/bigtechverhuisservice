@@ -42,7 +42,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
           left-0
           w-full
           h-12
-          md:h-30
+          md:h-15
           bg-black
           border-b-2
           border-black
