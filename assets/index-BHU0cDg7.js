@@ -668,6 +668,24 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         md:max-w-xs
         text-xs
         md:text-base
+      `,children:[`×`,(0,Y.jsx)(`p`,{className:`font-bold mb-1 md:mb-2 pr-5 md:pr-0`,children:`Scroll down`}),(0,Y.jsxs)(`div`,{className:`
+        fixed
+        bottom-3
+        right-3
+        md:bottom-4
+        md:right-4
+        bg-gray-200
+        border-2
+        border-blue-600
+        p-2
+        md:p-4
+        z-50
+        text-blue-600
+        w-[150px]
+        md:w-auto
+        md:max-w-xs
+        text-xs
+        md:text-base
       `,children:[(0,Y.jsx)(`button`,{type:`button`,onClick:()=>i(!1),className:`
           md:hidden
           absolute
@@ -679,7 +697,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           border-black
           px-1
           leading-none
-        `,children:`×`}),(0,Y.jsxs)(`p`,{className:`font-bold mb-1 md:mb-2 pr-5 md:pr-0`,children:[`Now online: `,t.length]}),(0,Y.jsx)(`div`,{className:`max-h-20 md:max-h-none overflow-y-auto`,children:t.map((e,t)=>(0,Y.jsxs)(`p`,{className:`truncate`,children:[`● `,e]},t))})]}):null}function oy({children:e}){return(0,Y.jsx)(Op.div,{className:`relative min-h-screen bg-black`,children:(0,Y.jsx)(Op.div,{initial:{opacity:0,y:12,filter:`blur(6px)`},animate:{opacity:1,y:0,filter:`blur(0px)`},exit:{opacity:0,y:-12,filter:`blur(6px)`},transition:{duration:.45,ease:[.22,1,.36,1]},className:`min-h-screen bg-black`,children:e})})}function sy({name:e,setName:t,links:n,setLinks:r}){let i=ft();return(0,Y.jsxs)(Md,{mode:`wait`,children:[(0,Y.jsx)(iy,{}),(0,Y.jsxs)(Ut,{location:i,children:[(0,Y.jsx)(Vt,{path:`/`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(Ap,{name:e,setName:t})})}),(0,Y.jsx)(Vt,{path:`/verhuizen`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(ny,{})})}),(0,Y.jsx)(Vt,{path:`/inpakken`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(jp,{name:e,links:n,setLinks:r})})}),(0,Y.jsx)(Vt,{path:`/afscheid`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(ey,{})})}),(0,Y.jsx)(Vt,{path:`/customizen`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(qv,{name:e,links:n})})}),(0,Y.jsx)(Vt,{path:`/huisje/:id`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(Xv,{name:e})})}),(0,Y.jsx)(Vt,{path:`/stad`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)($v,{name:e})})}),(0,Y.jsx)(Vt,{path:`/sleutels`,element:(0,Y.jsx)(ry,{})}),(0,Y.jsx)(Vt,{path:`/naar-stad`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(ty,{})})})]},i.pathname)]})}function cy(){let[e,t]=(0,b.useState)(``),[n,r]=(0,b.useState)([``,``,``,``,``]);return(0,Y.jsxs)(jn,{children:[(0,Y.jsx)(ay,{name:e}),(0,Y.jsx)(sy,{name:e,setName:t,links:n,setLinks:r}),(0,Y.jsx)(`style`,{children:`
+        `,children:`×`}),(0,Y.jsxs)(`p`,{className:`font-bold mb-1 md:mb-2 pr-5 md:pr-0`,children:[`Now online: `,t.length]}),(0,Y.jsx)(`div`,{className:`max-h-20 md:max-h-none overflow-y-auto`,children:t.map((e,t)=>(0,Y.jsxs)(`p`,{className:`truncate`,children:[`● `,e]},t))})]})]}):null}function oy({children:e}){return(0,Y.jsx)(Op.div,{className:`relative min-h-screen bg-black`,children:(0,Y.jsx)(Op.div,{initial:{opacity:0,y:12,filter:`blur(6px)`},animate:{opacity:1,y:0,filter:`blur(0px)`},exit:{opacity:0,y:-12,filter:`blur(6px)`},transition:{duration:.45,ease:[.22,1,.36,1]},className:`min-h-screen bg-black`,children:e})})}function sy({name:e,setName:t,links:n,setLinks:r}){let i=ft();return(0,Y.jsxs)(Md,{mode:`wait`,children:[(0,Y.jsx)(iy,{}),(0,Y.jsxs)(Ut,{location:i,children:[(0,Y.jsx)(Vt,{path:`/`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(Ap,{name:e,setName:t})})}),(0,Y.jsx)(Vt,{path:`/verhuizen`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(ny,{})})}),(0,Y.jsx)(Vt,{path:`/inpakken`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(jp,{name:e,links:n,setLinks:r})})}),(0,Y.jsx)(Vt,{path:`/afscheid`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(ey,{})})}),(0,Y.jsx)(Vt,{path:`/customizen`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(qv,{name:e,links:n})})}),(0,Y.jsx)(Vt,{path:`/huisje/:id`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(Xv,{name:e})})}),(0,Y.jsx)(Vt,{path:`/stad`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)($v,{name:e})})}),(0,Y.jsx)(Vt,{path:`/sleutels`,element:(0,Y.jsx)(ry,{})}),(0,Y.jsx)(Vt,{path:`/naar-stad`,element:(0,Y.jsx)(oy,{children:(0,Y.jsx)(ty,{})})})]},i.pathname)]})}function cy(){let[e,t]=(0,b.useState)(``),[n,r]=(0,b.useState)([``,``,``,``,``]);return(0,Y.jsxs)(jn,{children:[(0,Y.jsx)(ay,{name:e}),(0,Y.jsx)(sy,{name:e,setName:t,links:n,setLinks:r}),(0,Y.jsx)(`style`,{children:`
         html,
         body,
         #root {
